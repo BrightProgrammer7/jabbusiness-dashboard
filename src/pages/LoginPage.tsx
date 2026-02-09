@@ -8,7 +8,7 @@ import { useAuth } from '../hooks/use-auth';
 import { Navigate } from 'react-router-dom';
 
 export function LoginPage() {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const { login, isLoading, isAuthenticated } = useAuth();
 
@@ -19,7 +19,7 @@ export function LoginPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    login({ email, password });
+    login({ username, password });
   };
 
   return (
@@ -41,21 +41,21 @@ export function LoginPage() {
             <div className="space-y-4">
               <div>
                 <label
-                  htmlFor="email"
+                  htmlFor="username"
                   className="block text-sm font-medium text-slate-700"
                 >
-                  Email address
+                  Username / Email
                 </label>
                 <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
+                  id="username"
+                  name="username"
+                  type="text"
+                  autoComplete="username"
                   required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   className="mt-1 block w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
-                  placeholder="you@example.com"
+                  placeholder="your.username"
                 />
               </div>
 
